@@ -5,7 +5,10 @@ function addCorsIfNeeded(response: Response) {
   const headers = new Headers(response.headers);
 
   if (!headers.has("access-control-allow-origin")) {
-    headers.set("access-control-allow-origin", "*");
+headers.set("access-control-allow-origin", "*");
+headers.set("Access-Control-Allow-Credentials", "true");
+headers.set("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+headers.set("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
   }
 
   return headers;
